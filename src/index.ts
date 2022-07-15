@@ -5,7 +5,7 @@ import fs from 'fs'
 import figlet from 'figlet'
 import parse from 'csv-parse/lib/sync'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander';
 
 import { format } from './format'
 import { solve } from './solve'
