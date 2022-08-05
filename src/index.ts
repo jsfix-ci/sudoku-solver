@@ -3,7 +3,7 @@
 import chalk from 'chalk'
 import fs from 'fs'
 import figlet from 'figlet'
-import parse from 'csv-parse/lib/sync'
+import parse from 'csv-parse/sync'
 import path from 'path'
 import program from 'commander'
 
@@ -31,7 +31,7 @@ program
           const file = fs.readFileSync(path.resolve(cmd))
           logger.log('Get File -', path.resolve(cmd))
 
-          const sudoku = await parse(file)
+          const sudoku = await parse.parse(file)
           const result = await solve(sudoku)
           const correct = await check(result)
 
@@ -72,7 +72,7 @@ program
         const file = fs.readFileSync(path.resolve(cmd))
         logger.log('Get File -', path.resolve(cmd))
 
-        const sudoku = await parse(file)
+        const sudoku = await parse.parse(file)
         await format(sudoku)
         console.log(' ✅ ' + path.resolve(cmd).toString(), '\n')
       } catch (err) {
